@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: black;
+  align-items: center;
+  h1 {
+    margin-left: 10px;
+    color: red;
+  }
+  .bar {
+    margin-right: 10px;
+  }
+}
