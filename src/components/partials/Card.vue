@@ -12,7 +12,7 @@ export default {
 <template>
   <div class="col mb-3">
     <div class="card">
-      <img class="card-img-top" :src="image" :alt="name" />
+      <img class="card-img-top" :src="backdrop_path" :alt="title" />
       <div class="card-body">
         <h5 class="card-title">{{ title }}</h5>
         <h6 class="card-title">Titolo originale: {{ original_title }}</h6>

@@ -9,18 +9,27 @@ export default {
     Main,
   },
   data() {
-    return {};
+    return {
+      store,
+    };
   },
   methods: {
     getApi() {
-      axios.get(this.store.apiUrlMovie, {
-        params: {
-          title: "",
-          original_title: "",
-          original_language: "",
-          vote_average: 0,
-        },
-      });
+      axios
+        .get(this.store.apiUrlMovie, {
+          params: {
+            title: "",
+            original_title: "",
+            original_language: "",
+            vote_average: 0,
+          },
+        })
+        .then((result) => {
+          store.cardsList = result.results;
+        })
+        .catch((error) => {
+          alert("Errore", error);
+        });
     },
   },
   mounted() {
@@ -31,8 +40,9 @@ export default {
 
 <template>
   <Header />
+  <Main />
 </template>
 
 <style lang="scss">
-@use "./assets/scss/main.scss";
+@import "./assets/scss/main.scss";
 </style>
