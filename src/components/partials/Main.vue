@@ -8,19 +8,35 @@ export default {
   data() {
     return {
       store,
+      title: "",
       searchName: "",
       currentPage: 1,
-      pageSize: 9,
     };
+  },
+  methods: {
+    getApi() {
+      axios
+        .get(this.store.apiUrl, {
+          params: {
+            title: "",
+            original_title: "",
+            original_language: "",
+            vote_average: 0,
+          },
+        })
+        .then((result) => {
+          store.movieList = result.results;
+        })
+        .catch((error) => {
+          alert("Errore", error);
+        });
+    },
   },
   computed: {
     filteredCards() {
-      const start = (this.currentPage - 1) * this.pageSize;
-      return this.store.cardsList
-        .slice(start, start + this.pageSize)
-        .filter((card) =>
-          card.title.toLowerCase().includes(this.searchName.toLowerCase())
-        );
+      return this.store.cardsList.filter((card) =>
+        card.title.toLowerCase().includes(this.searchName.toLowerCase())
+      );
     },
   },
 };
@@ -28,14 +44,14 @@ export default {
 
 <template>
   <div class="container text-center my-5">
-    <div class="row row-cols-3">
+    <div class="row row-cols-5">
       <Card
-        v-for="card in filteredCards"
-        :key="card.id"
-        :title="card.title"
-        :original_title="card.original_title"
-        :language="card.original_title"
-        :image="card.image"
+        v-for="item in store[type]"
+        :key="item.id"
+        :title="item.title"
+        :original_title="item.original_title"
+        :language="item.original_title"
+        :image="item.image"
       />
     </div>
   </div>

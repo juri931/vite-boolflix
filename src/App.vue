@@ -14,26 +14,37 @@ export default {
     };
   },
   methods: {
-    getApi() {
+    getApi(type) {
       axios
-        .get(this.store.apiUrlMovie, {
-          params: {
-            title: "",
-            original_title: "",
-            original_language: "",
-            vote_average: 0,
-          },
+        .get(store.apiUrl + type, {
+          params: store.apiParams,
         })
-        .then((result) => {
-          store.cardsList = result.results;
+        .then((res) => {
+          store[type] = res.data.results;
+        });
+    },
+    getMovies() {
+      axios
+        .get(store.apiUrl + "movie", {
+          params: store.apiParams,
         })
-        .catch((error) => {
-          alert("Errore", error);
+        .then((res) => {
+          store.movieList = res.data.results;
+        });
+    },
+    getSeries() {
+      axios
+        .get(store.apiUrl + "tv", {
+          params: store.apiParams,
+        })
+        .then((res) => {
+          store.seriesList = res.data.results;
         });
     },
   },
   mounted() {
-    this.getApi();
+    this.getApi("movie");
+    this.getApi("tv");
   },
 };
 </script>

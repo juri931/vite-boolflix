@@ -17,8 +17,9 @@ export default {
         v-model="searchName"
         type="text"
         class="form-control"
-        placeholder="Search name"
+        placeholder="Cerca"
       />
+      <button class="btn btn-danger">Cerca</button>
     </div>
   </nav>
 </template>

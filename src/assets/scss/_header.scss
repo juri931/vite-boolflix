@@ -7,8 +7,13 @@ nav {
   h1 {
     margin-left: 10px;
     color: red;
+    text-shadow: 2px 4px rgb(128, 0, 0);
   }
   .bar {
     margin-right: 10px;
+    display: flex;
+    button {
+      margin-left: 5px;
+    }
   }
 }
