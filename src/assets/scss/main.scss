@@ -1,3 +1,9 @@
 body {
   background-color: rgb(67, 67, 67);
+  .container {
+    h3 {
+      color: red;
+      text-shadow: 2px 2px rgb(128, 0, 0);
+    }
+  }
 }

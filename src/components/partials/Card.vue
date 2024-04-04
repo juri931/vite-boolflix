@@ -1,21 +1,10 @@
 <script>
 export default {
   props: {
-    type: String,
     title: String,
     original_title: String,
-    language: String,
-    vote: String,
-  },
-  data() {
-    return {
-      store,
-    };
-  },
-  computed: {
-    title() {
-      return this.type === "movie" ? "Film" : "Serie TV";
-    },
+    original_language: String,
+    vote_average: Number,
   },
 };
 </script>

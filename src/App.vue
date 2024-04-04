@@ -23,35 +23,18 @@ export default {
           store[type] = res.data.results;
         });
     },
-    getMovies() {
-      axios
-        .get(store.apiUrl + "movie", {
-          params: store.apiParams,
-        })
-        .then((res) => {
-          store.movieList = res.data.results;
-        });
+    mounted() {
+      this.getApi("movie");
+      this.getApi("tv");
     },
-    getSeries() {
-      axios
-        .get(store.apiUrl + "tv", {
-          params: store.apiParams,
-        })
-        .then((res) => {
-          store.seriesList = res.data.results;
-        });
-    },
-  },
-  mounted() {
-    this.getApi("movie");
-    this.getApi("tv");
   },
 };
 </script>
 
 <template>
   <Header />
-  <Main />
+  <Main type="movie" />
+  <Main type="tv" />
 </template>
 
 <style lang="scss">
