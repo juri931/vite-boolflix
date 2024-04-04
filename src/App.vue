@@ -23,10 +23,10 @@ export default {
           store[type] = res.data.results;
         });
     },
-    mounted() {
-      this.getApi("movie");
-      this.getApi("tv");
-    },
+  },
+  mounted() {
+    this.getApi("movie");
+    this.getApi("tv");
   },
 };
 </script>
