@@ -24,14 +24,14 @@ export default {
 <template>
   <div class="container text-center my-5">
     <h3>{{ title }}</h3>
-    <div class="row row-cols-5">
+    <div class="row row-cols-4">
       <Card
         v-for="item in store[type]"
         :key="item.id"
-        :title="item.title"
-        :original_title="item.original_title"
+        :title="item.title || item.name"
+        :original_title="item.original_title || item.original_name"
         :language="item.original_language"
-        :image="item.image"
+        :poster_path="item.poster_path"
       />
     </div>
   </div>
