@@ -1,6 +1,4 @@
 <script>
-import { fileImage, image, language } from "fontawesome";
-
 export default {
   props: {
     title: String,
@@ -8,6 +6,7 @@ export default {
     language: String,
     vote_average: Number,
     poster_path: String,
+    image: String,
   },
 };
 </script>
@@ -15,12 +14,12 @@ export default {
 <template>
   <div class="col-3 mb-3">
     <div class="card">
-      <img class="card-img-top" :src="poster_path" :alt="title" />
+      <img class="card-img-top" :src="image + poster_path" :alt="title" />
       <div class="card-body">
         <h5 class="card-title">{{ title }}</h5>
         <h6 class="card-title">Titolo originale: {{ original_title }}</h6>
         <h6 class="card-subtitle">Lingua originale: {{ language }}</h6>
-        <p class="text-center">Voto: {{ vote_average.toFixed(2) }}</p>
+        <p class="text-center">Voto: {{ vote_average.toFixed(1) }}</p>
       </div>
     </div>
   </div>
