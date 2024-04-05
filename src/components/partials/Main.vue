@@ -32,6 +32,7 @@ export default {
         :original_title="item.original_title || item.original_name"
         :language="item.original_language"
         :poster_path="item.poster_path"
+        :vote_average="item.vote_average"
       />
     </div>
   </div>

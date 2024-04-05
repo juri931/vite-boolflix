@@ -20,7 +20,7 @@ export default {
         <h5 class="card-title">{{ title }}</h5>
         <h6 class="card-title">Titolo originale: {{ original_title }}</h6>
         <h6 class="card-subtitle">Lingua originale: {{ language }}</h6>
-        <p class="text-center">Voto: {{ vote_average }}</p>
+        <p class="text-center">Voto: {{ vote_average.toFixed(2) }}</p>
       </div>
     </div>
   </div>
